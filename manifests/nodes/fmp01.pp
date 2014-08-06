@@ -3,7 +3,7 @@ node 'fmp01' {
 
   # Place puppet stuff here
 
-  $soft=['rpm-build','ruby-devel','yum-downloadonly']
+  $soft=['rpm-build','ruby-devel']
 
   # Adding epel repo
   yumrepo { 'epel':
@@ -13,24 +13,6 @@ node 'fmp01' {
     enabled    => 1,
     gpgcheck   => 0,
   }
-
-# Add the inuits repos for looking for packages
-# Dont forget the ssh tunnel
-#
-#   Yumrepo{
-#     gpgcheck => '0',
-#     enabled  => '1',
-#   }
-#   
-#   yumrepo{'inuits':
-#     descr   => 'CentOS-6 - Inuits',
-#     baseurl => 'http://pulp2.internal.inuits.eu/pulp/repos/pub/inuits/$releasever/$basearch',
-#   }
-#   
-#   yumrepo{'inuits-private':
-#     baseurl => 'http://pulp2.internal.inuits.eu/pulp/repos/private/inuits-private',
-#     descr   => 'Inuits internal repo',
-#   }
   
   package { $soft:
     ensure   => 'present',

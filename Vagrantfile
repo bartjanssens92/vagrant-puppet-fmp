@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     fmp01_config.vm.provision :puppet do |fmp01_puppet|
       fmp01_puppet.manifests_path = "manifests"
       fmp01_puppet.manifest_file  = "site.pp"
-      fmp01_puppet.module_path    = "modules"
+#      fmp01_puppet.module_path    = "modules"
     end
   end
 end
